@@ -1,9 +1,9 @@
 ###Current (I) Step
 
-**Requirements:** none
-**Limitations:** none noted
+**Requirements:** none  
+**Limitations:** none noted  
 
-![EDIT THIS LINK](http://www.rtxi.org/wp-content/uploads/2010/03/istep.png)
+![Current Step GUI](current-step.png)
 
 This plugin allows you to deliver a series of current step commands.
 ####Output Channels
