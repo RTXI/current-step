@@ -5,7 +5,10 @@
 
 ![Current Step GUI](current-step.png)
 
+<!--start-->
 This plugin allows you to deliver a series of current step commands.
+<!--end-->
+
 ####Output Channels
 1. output(0) – “Iout” : Step current command in amperes. Connect to the amplifer external signal input.
 
