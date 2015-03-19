@@ -54,8 +54,9 @@ static size_t num_vars = sizeof(vars) / sizeof(DefaultGUIModel::variable_t);
 Istep::Istep(void) : DefaultGUIModel("Current Step", ::vars, ::num_vars), dt(RT::System::getInstance()->getPeriod() * 1e-6), period(1.0), delay(0.0), Amin(-20.0), Amax(20.0), Nsteps(2), Ncycles(1), duty(50), offset(0.0) {
 	setWhatsThis("<p><b>I-Step:</b><br>This module generates a train of current injection pulses with amplitudes between a user-specified minimum and maximum.</p>");
 	createGUI(vars, num_vars);
-	update( INIT);
+	update(INIT);
 	refresh();
+	QTimer::singleShot(0, this, SLOT(resizeMe()));
 }
 
 Istep::~Istep(void) {}
