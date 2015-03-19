@@ -1,8 +1,8 @@
-PLUGIN_NAME = current-step
+PLUGIN_NAME = Istep
 
-HEADERS = current-step.h
+HEADERS = Istep.h
 
-SOURCES = current-step.cpp \
+SOURCES = Istep.cpp \
 
 LIBS = 
 

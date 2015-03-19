@@ -1,14 +1,11 @@
 ###Current (I) Step
 
-**Requirements:** none  
-**Limitations:** none noted  
+**Requirements:** none
+**Limitations:** none noted
 
-![Current Step GUI](current-step.png)
+![EDIT THIS LINK](http://www.rtxi.org/wp-content/uploads/2010/03/istep.png)
 
-<!--start-->
 This plugin allows you to deliver a series of current step commands.
-<!--end-->
-
 ####Output Channels
 1. output(0) – “Iout” : Step current command in amperes. Connect to the amplifer external signal input.
 
