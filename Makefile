@@ -1,4 +1,4 @@
-PLUGIN_NAME = current-step
+PLUGIN_NAME = current_step
 
 HEADERS = current-step.h
 
