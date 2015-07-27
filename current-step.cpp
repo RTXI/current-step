@@ -21,7 +21,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <current-step.h>
-#include <QtGui>
 
 extern "C" Plugin::Object *createRTXIPlugin(void) {
 	return new Istep();
@@ -31,9 +30,9 @@ static DefaultGUIModel::variable_t vars[] =
 {
 	{ "Vin", "", DefaultGUIModel::INPUT, },
 	{ "Iout", "", DefaultGUIModel::OUTPUT, },
-	{ "Period (sec)", "Duration of one cycle", DefaultGUIModel::PARAMETER
+	{ "Period (s)", "Duration of one cycle", DefaultGUIModel::PARAMETER
 		| DefaultGUIModel::DOUBLE, },
-	{ "Delay (sec)", "Time until step starts from beginning of cycle",
+	{ "Delay (s)", "Time until step starts from beginning of cycle",
 		DefaultGUIModel::PARAMETER | DefaultGUIModel::DOUBLE, },
 	{ "Min Amp (pA)", "Starting current of the steps",
 		DefaultGUIModel::PARAMETER | DefaultGUIModel::DOUBLE, },
@@ -56,7 +55,7 @@ Istep::Istep(void) : DefaultGUIModel("Current Step", ::vars, ::num_vars), dt(RT:
 	createGUI(vars, num_vars);
 	update(INIT);
 	refresh();
-	QTimer::singleShot(0, this, SLOT(resizeMe()));
+	resizeMe();
 }
 
 Istep::~Istep(void) {}
@@ -91,8 +90,8 @@ void Istep::execute(void) {
 void Istep::update(DefaultGUIModel::update_flags_t flag) {
 	switch (flag) {
 		case INIT:
-			setParameter("Period (sec)", period);
-			setParameter("Delay (sec)", delay);
+			setParameter("Period (s)", period);
+			setParameter("Delay (s)", delay);
 			setParameter("Min Amp (pA)", Amin);
 			setParameter("Max Amp (pA)", Amax);
 			setParameter("Increments", Nsteps);
@@ -102,8 +101,8 @@ void Istep::update(DefaultGUIModel::update_flags_t flag) {
 			break;
 
 		case MODIFY:
-			period = getParameter("Period (sec)").toDouble();
-			delay = getParameter("Delay (sec)").toDouble();
+			period = getParameter("Period (s)").toDouble();
+			delay = getParameter("Delay (s)").toDouble();
 			Amin = getParameter("Min Amp (pA)").toDouble();
 			Amax = getParameter("Max Amp (pA)").toDouble();
 			Nsteps = getParameter("Increments").toInt();
